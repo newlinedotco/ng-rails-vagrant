@@ -7,3 +7,4 @@
 # All rights reserved - Do Not Redistribute
 #
 package "tree"
+include_recipe "rvm::user"

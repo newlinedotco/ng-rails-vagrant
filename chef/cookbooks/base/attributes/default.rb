@@ -1,0 +1,12 @@
+override['rvm']['user_installs'] = [
+  { 
+    'user'            => 'vagrant',
+    'default_ruby'    => 'ruby-2.0.0-p195',
+    'global_gems'     => [
+      { 'name'    => 'bundler',
+        'version' => '1.5.2'
+      },
+      { 'name'    => 'rake' }
+    ]
+  }
+]
