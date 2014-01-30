@@ -1,4 +1,5 @@
 run_list [
   'recipe[apt]',
-  'recipe[git]'
+  'recipe[git]',
+  'recipe[base]'
 ]
