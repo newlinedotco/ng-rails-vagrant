@@ -11,7 +11,7 @@ Vagrant.configure('2') do |config|
 
   config.vm.synced_folder(
     host_dir=File.dirname(__FILE__) + "/shared",
-    guest_dir="~/shared",
+    guest_dir="/home/vagrant/shared",
     :create => true,
     :nfs => true
   )
