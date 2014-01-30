@@ -1,0 +1,3 @@
+PLEASE NOTE: Since this project uses Berkshelf, do not set the chef-solo Vagrant
+provisioner's 'cookbooks_path' to this folder. Instead, reference the individual
+cookbooks from the Berksfile.
