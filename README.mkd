@@ -1,0 +1,3 @@
+# ng-rails-vagrant
+
+This project boots a VM suitable for use for building the fullstack.io ng-rails video
