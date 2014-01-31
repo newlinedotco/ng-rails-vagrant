@@ -10,4 +10,5 @@ Berksfile.lock
 # Bundler
 Gemfile.lock
 .bundle/*
+shared/*
 
