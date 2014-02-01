@@ -6,5 +6,6 @@ run_list [
   'recipe[rvm::user]',
   'recipe[nodejs::install_from_package]',
   'recipe[nodejs::npm]',
-  'recipe[base]'
+  'recipe[base]',
+  'recipe[base::user_setup]'
 ]
