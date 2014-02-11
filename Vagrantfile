@@ -5,7 +5,7 @@
 Vagrant.configure('2') do |config|
   config.berkshelf.enabled = true
 
-  config.vm.box = "fs-ng-rails"
+  config.vm.box = "fullstack-ng-rails"
   config.vm.box_url = 'https://dl.dropboxusercontent.com/u/36642341/ubuntu-12.04-omnibus-chef.box'
   config.vm.network :private_network, :ip => '10.70.70.70'
 
