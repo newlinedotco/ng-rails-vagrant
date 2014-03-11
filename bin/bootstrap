@@ -12,6 +12,19 @@ ROOT=`cd $(dirname "${BASH_SOURCE[0]}") && pwd`; while true; do if [[ -e $ROOT/$
 # Enter root directory
 cd $ROOT
 
+if [[ -s Gemfile ]] && {
+  ! builtin command -v bundle >/dev/null ||
+  builtin command -v bundle | GREP_OPTIONS= \grep $rvm_path/bin/bundle >/dev/null
+}
+then
+  printf "%b" "The rubygem 'bundler' is not installed. Installing it now.\n"
+  gem install bundler
+fi
+if [[ -s Gemfile ]] && builtin command -v bundle >/dev/null
+then
+  bundle install | GREP_OPTIONS= \grep -vE '^Using|Your bundle is complete'
+fi
+
 # Ensure that ssh agent forwarding is ready for the default identity.
 # TODO: use flexible identity here
 echo 'Ensuring that SSH identity is available...'
