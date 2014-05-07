@@ -1,3 +1,56 @@
 # ng-rails-vagrant
 
-This project boots a VM suitable for use for building the fullstack.io ng-rails video
+This project contains a vagrant configuration that is a companion to the [ng-rails video Fullstackedu](https://www.fullstackedu.com/products/ng-rails).
+
+Want to learn how to create applications with AngularJS and Rails? [Checkout the course.](https://www.fullstackedu.com/products/ng-rails)
+
+### Setting up
+
+- Visit: [https://github.com/fullstackio/ng-rails-vagrant](https://github.com/fullstackio/ng-rails-vagrant)
+- Download ZIP and save it on your hard drive 
+- Open the .zip file 
+- Open up a terminal and visit that directory 
+
+> Let's `cd` into the directory `ng-rails-vagrant`. When you `cd` into this directory you might get this notice if you have `rvm` installed. If you don't see it, it's no problem. `rvm` is a tool people use to manage different ruby versions and different groups of gems.
+> 
+> I wrote this `.rvm` file so I am going to reply `y` to trust it.
+
+```bash
+cd ng-rails-vagrant
+
+# This will install a few vagrant plugins
+./bin/bootstrap
+
+# This will boot our virtual machine and install a bunch of software. This can take a few minutes, so you might want to grab a cup of coffee.
+vagrant up
+
+# Alright now we're done. If you get any errors, try running this:
+vagrant provision
+
+# Now that the machine is booted we can ssh into it. To do that we type: 
+vagrant ssh
+```
+
+
+### License
+The MIT License (MIT)
+
+Copyright (c) 2014 Fullstack.io, LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
