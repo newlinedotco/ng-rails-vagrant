@@ -1,46 +1,4 @@
 #!/bin/bash
 
-exit_bootstrap() {
-  echo $1
-  exit 1
-}
-
-# Discover the project root
-ROOT_MARKER=".root"
-ROOT=`cd $(dirname "${BASH_SOURCE[0]}") && pwd`; while true; do if [[ -e $ROOT/$ROOT_MARKER ]]; then break; elif [[ "$ROOT" = '/' ]]; then echo "Could not find $ROOT_MARKER" && exit 1; else ROOT=`dirname $ROOT`; fi; done
-
-# Enter root directory
-cd $ROOT
-
-if [[ -s Gemfile ]] && {
-  ! builtin command -v bundle >/dev/null ||
-  builtin command -v bundle | GREP_OPTIONS= \grep $rvm_path/bin/bundle >/dev/null
-}
-then
-  printf "%b" "The rubygem 'bundler' is not installed. Installing it now.\n"
-  gem install bundler
-fi
-if [[ -s Gemfile ]] && builtin command -v bundle >/dev/null
-then
-  bundle install | GREP_OPTIONS= \grep -vE '^Using|Your bundle is complete'
-fi
-
-# Ensure that ssh agent forwarding is ready for the default identity.
-# TODO: use flexible identity here
-echo 'Ensuring that SSH identity is available...'
-if `ssh-add -l | grep -q id_rsa`; then
-  echo "SSH identity is present!"
-else
-  ssh-add || exit_bootstrap 'SSH identity auth failed, unable to proceed.'
-fi
-
-# Install Berkshelf
-vagrant plugin install vagrant-berkshelf
-vagrant plugin install vagrant-vbox-snapshot
-
-# Start Vagrant
-# vagrant up
 echo "Now run:"
 echo "vagrant up"
-
-
