@@ -18,12 +18,11 @@ Vagrant.configure('2') do |config|
   config.vm.network :private_network, :ip => '10.70.70.70'
 
 
-  config.vm.synced_folder(
-    host_dir=File.dirname(__FILE__) + "/shared",
-    guest_dir="/home/vagrant/shared",
-    :create => true,
-    :nfs => true
-  )
+  config.vm.synced_folder "./shared", "/home/vagrant/shared", id: "vagrant-root",
+    owner: "vagrant",
+    group: "vagrant",
+    mount_options: ["dmode=755,fmode=755"]
+
 
   config.ssh.forward_agent = true
   config.vm.provider 'virtualbox' do |v|
